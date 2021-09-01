@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 
 # Load initial file
 marketing = pd.read_csv('marketing.csv')
+#marketing = pd.read_csv("https://raw.githubusercontent.com/GuoweiYang19891101/datacamp_marketing_analytics_python/main/marketing.csv")
 # OR Read date columns using parse_dates
 # marketing = pd.read_csv('marketing.csv', parse_dates=['date_served', 'date_subscribed', 'date_canceled'])
 
