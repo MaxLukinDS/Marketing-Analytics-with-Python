@@ -46,7 +46,7 @@ t = ttest_ind(control, personalization)
 print(t)
 # A p-value less than 0.05 (typically ≤ 0.05) is statistically significant.
 # It indicates strong evidence against the null hypothesis,
-# as there is less than a 5% probability the null is correct (and the results are random).
+# as there is less than a 5% probability the null is correct (and the results are random) or the result is 95% significant.
 
 # Building an A/B test segmenting function
 def ab_segmentation(segment):
