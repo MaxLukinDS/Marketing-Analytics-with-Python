@@ -85,7 +85,7 @@ Also considers sentiment of emoji (😅😅) and capitalization (Nice vs NICE)''
 
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 sid = SentimentIntensityAnalyzer()
-sentiment_scores = tweets['text'].apply(sid.polarity_scores)
+#sentiment_scores = tweets['text'].apply(sid.polarity_scores)
 
 '''
 sid.polarity_scores(tweet) -> {'neg': 0.4, 'compound': 0.1, 'pos': 0.2, 'neu':0.3}
@@ -96,23 +96,30 @@ sid.polarity_scores(tweet) -> {'neg': 0.4, 'compound': 0.1, 'pos': 0.2, 'neu':0.
 '''
 #for i in range(len(ds_tweets)): print(sentiment_scores[i]['compound'])
 
+#Creating a sentiment column in tweet dataframe itself
+tweets['sentiment'] = 0
+for i in range(len(tweets)):
+    tweets.iloc[i,42] = sid.polarity_scores(tweets.iloc[i,37])['compound']
+
 '''Calculating sentiment scores'''
 # Print out the text of a positive tweet
-print(tweets[sentiment_scores > 0.6]['text'].values[0])
+print(tweets[tweets.sentiment > 0.6]['text'].values[0])
 # Print out the text of a negative tweet
-print(tweets[sentiment_scores < -0.6]['text'].values[0])
+print(tweets[tweets.sentiment < -0.6]['text'].values[0])
 
-# Generate average sentiment scores for #python
-# sentiment_py = sentiment_scores[check_word_in_tweet('#python', tweets)].resample('1 d').mean()
+#method 1
+# Generate average sentiment scores for #python 
+sentiment_py = tweets[check_word_in_tweet('#python', tweets)]['sentiment'].resample('1 d').mean()
 # Generate average sentiment scores for #rstats
-# sentiment_r = sentiment_scores[check_word_in_tweet('#rstats', tweets)].resample('1 d').mean()
-'''TypeError: '>' not supported between instances of 'dict' and 'float' '''
+sentiment_r = tweets[check_word_in_tweet('#rstats', tweets)]['sentiment'].resample('1 d').mean()
 
+#method 2
+tweets['python'] = check_word_in_tweet('#python',tweets)
+tweets['rstats'] = check_word_in_tweet('#rstats',tweets)
 # Generate average sentiment scores for #python
-sentiment_py = sentiment_scores[tweets['python']].resample('1 d').mean()
+sentiment_py = tweets[tweets['python']]['sentiment'].resample('1 d').mean()
 # Generate average sentiment scores for #rstats
-sentiment_r = sentiment_scores[tweets['rstats']].resample('1 d').mean()
-'''TypeError: '>' not supported between instances of 'dict' and 'float' '''
+sentiment_r = tweets[tweets['rstats']]['sentiment'].resample('1 d').mean()
 
 '''Plotting sentiment scores'''
 # Plot average #python sentiment per day
