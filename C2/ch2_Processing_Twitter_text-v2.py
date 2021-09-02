@@ -88,13 +88,13 @@ sid = SentimentIntensityAnalyzer()
 sentiment_scores = tweets['text'].apply(sid.polarity_scores)
 
 '''
-sid.polarity_scores(tweet)
+sid.polarity_scores(tweet) -> {'neg': 0.4, 'compound': 0.1, 'pos': 0.2, 'neu':0.3}
 - neg: negative sentiment
 - pos: positive sentiment
 - neu: neutral measures words that don't contribute to the sentiment
 - compound: combination of positive and negative(range [-1,1])
 '''
-
+#for i in range(len(ds_tweets)): print(sentiment_scores[i]['compound'])
 
 '''Calculating sentiment scores'''
 # Print out the text of a positive tweet
