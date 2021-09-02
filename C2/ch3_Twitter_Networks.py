@@ -1,3 +1,14 @@
+'''
+In Twitter network, the nodes are users and edges specifies the relationship b/t users 
+
+I(source) retweeted my friend's(target) tweet := edge go @mine -> @myFriend
+
+Types of Twitter Network
+1. Retweets network
+2. Quotes network
+3. Replies network
+'''
+
 # Importing a retweet network
 import pandas as pd
 import networkx as nx
