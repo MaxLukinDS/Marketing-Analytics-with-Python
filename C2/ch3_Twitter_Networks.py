@@ -1,12 +1,10 @@
 '''
 In Twitter network, the nodes are users and edges specifies the relationship b/t users 
 
-I(source) retweeted my friend's(target) tweet := edge go @mine -> @myFriend
-
 Types of Twitter Network
-1. Retweets network
-2. Quotes network
-3. Replies network
+1. Retweets network - I(source) retweeted my friend's(target) tweet := edge go @mine -> @myFriend | retweet signals agreement
+2. Quotes network - 
+3. Replies network - I(source) replied to my friend's(target) tweet | reply signals discussion, deliberation, and disagreement
 '''
 
 # Importing a retweet network
