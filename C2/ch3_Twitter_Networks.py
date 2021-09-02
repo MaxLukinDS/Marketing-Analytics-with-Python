@@ -78,7 +78,8 @@ Centrality:
     In-degree - edge going into node |  In-degree centrality for retweet networks signals users who are getting many retweets
     Out-degree - edge going out of a node
     
-2. Betweenness Centrality
+2. Betweenness Centrality - Betweenness centrality for retweet and reply networks signals users who bridge between different Twitter communities. 
+                            These communities may be tied together by topic or ideology.
  - How many shortest paths between two nodes pass through this node
   '''
 
