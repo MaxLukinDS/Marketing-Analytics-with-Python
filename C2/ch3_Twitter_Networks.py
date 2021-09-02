@@ -75,7 +75,7 @@ Centrality:
             - Measures of importance of a node in a network
             - Several different ideas of "importance
 1. Degree Centrality = Number of edges that are connected to node
-    In-degree - edge going into node
+    In-degree - edge going into node |  In-degree centrality for retweet networks signals users who are getting many retweets
     Out-degree - edge going out of a node
     
 2. Betweenness Centrality
