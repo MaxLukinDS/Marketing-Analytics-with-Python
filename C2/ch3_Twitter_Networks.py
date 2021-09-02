@@ -16,6 +16,10 @@ import matplotlib.pyplot as plt
 sotu_retweets = pd.read_csv('State of the Union Retweet Networking dataset.csv')
 sotu_replies = pd.read_csv('State of the Union Reply Network dataset.csv')
 
+#External repository link for reading data
+#sotu_replies = pd.read_csv('https://raw.githubusercontent.com/tommypratama/datacamp/master/Analyzing%20Social%20Media%20Data%20in%20Python/datasets/sotu2018-reply.csv')
+#sotu_retweets = pd.read_csv('https://raw.githubusercontent.com/tommypratama/datacamp/master/Analyzing%20Social%20Media%20Data%20in%20Python/datasets/sotu2018-rt.csv')
+
 '''Creating retweet network'''
 # Create retweet network from edgelist
 G_rt = nx.from_pandas_edgelist(sotu_retweets,
