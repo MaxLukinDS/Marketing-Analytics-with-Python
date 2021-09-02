@@ -76,15 +76,25 @@ plt.title('Language mentions over time')
 plt.legend(('#python', '#rstats'))
 plt.show()
 
-'''Sentiment Analysis Method:
+'''✨Sentiment Analysis Method:
 Counting positive/negative words VS positivity/negativity by VADER SentimentIntensityAnalyzer()
 Part of Natural Language Toolkit (nltk)
 Good for short texts like tweets
 Measures sentiment of particular words (e.g. angry, happy)
-Also considers sentiment of emoji (􀀀􀀀) and capitalization (Nice vs NICE)'''
+Also considers sentiment of emoji (😅😅) and capitalization (Nice vs NICE)'''
+
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 sid = SentimentIntensityAnalyzer()
 sentiment_scores = tweets['text'].apply(sid.polarity_scores)
+
+'''
+sid.polarity_scores(tweet)
+- neg: negative sentiment
+- pos: positive sentiment
+- neu: neutral measures words that don't contribute to the sentiment
+- compound: combination of positive and negative(range [-1,1])
+'''
+
 
 '''Calculating sentiment scores'''
 # Print out the text of a positive tweet
