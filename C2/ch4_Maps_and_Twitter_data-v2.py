@@ -91,10 +91,15 @@ def calculateCentroid(place):
 # Calculate the centroids of place
 centroids = tweets_sotu['place'].apply(calculateCentroid)
 
+
 '''Creating Basemap map'''
 '''Basemap allows you to create maps in Python. The library builds projections for latitude and longitude coordinates 
 and then passes the plotting work on to matplotlib.
 This means you can build extra features based on the power of matplotlib.'''
+
+import matplotlib.pyplot as plt
+# Import Basemap
+from mpl_toolkits.basemap import Basemap
 # Set up the US bounding box
 us_boundingbox = [-125, 22, -64, 50]
 
@@ -103,7 +108,7 @@ m = Basemap(llcrnrlon = us_boundingbox[0],
             llcrnrlat = us_boundingbox[1],
             urcrnrlon = us_boundingbox[2],
             urcrnrlat = us_boundingbox[3],
-            projection='merc')
+            projection='merc') #Mercator
 
 # Draw continents in white,
 # coastlines and countries in gray
